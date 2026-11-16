@@ -25,13 +25,10 @@ jobs:
     - name: Ejecutar pruebas con pytest
       run: |
         python -m pytest -v
-        
-  deploy:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-    - name: Simular despliegue en Produccion
-      run: |
-        echo "Las pruebas pasaron correctamente."
-        echo "🚀 Desplegando la calculadora de notas en el servidor de producción..."
-        echo "¡Despliegue exitoso!"
+
+    # Nuevo paso para el Punto 24
+    - name: Generar y subir artefacto ZIP
+      uses: actions/upload-artifact@v4
+      with:
+        name: proyecto-area-zip
+        path: .
