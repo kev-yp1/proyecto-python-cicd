@@ -25,3 +25,13 @@ jobs:
     - name: Ejecutar pruebas con pytest
       run: |
         python -m pytest -v
+        
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+    - name: Simular despliegue en Produccion
+      run: |
+        echo "Las pruebas pasaron correctamente."
+        echo "🚀 Desplegando la calculadora de notas en el servidor de producción..."
+        echo "¡Despliegue exitoso!"
